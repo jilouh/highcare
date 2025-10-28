@@ -14,14 +14,29 @@
     nav a{margin:0 10px;text-decoration:none;color:var(--text);opacity:.8} nav a:hover{opacity:1}
     .btn{display:inline-block;padding:12px 18px;border-radius:16px;font-weight:600;text-decoration:none}
     .btn.gold{background:var(--gold);color:var(--text)} .btn.outline{border:1px solid var(--gold);color:var(--text)}
-    .hero{padding:96px 0;text-align:center}
-    .hero h1{font-size:clamp(32px,6vw,56px);line-height:1.1;margin:12px 0 0}
-    .hero p{font-size:18px;color:var(--muted);max-width:680px;margin:16px auto 0}
+    .hero{padding:120px 0 100px;text-align:center}
+    .hero h1{font-size:clamp(36px,6vw,60px);line-height:1.1;margin:20px 0 0}
+    .hero p{font-size:18px;color:var(--muted);max-width:680px;margin:18px auto 0}
     section{padding:80px 0} section.alt{background:var(--bg-alt)}
     .row{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
     .col-6{grid-column:span 6} .card{background:#fff;border:1px solid #E5E7EB;border-radius:22px;padding:22px}
-    .logo{height:30px;vertical-align:middle} .logo-hero{height:90px;display:block;margin:0 auto 10px}
-    @media(max-width:900px){.col-6{grid-column:span 12} nav{display:none}}
+    .logo{height:30px;vertical-align:middle}
+    .logo-hero{
+      height:180px;
+      display:block;
+      margin:0 auto 20px;
+      transition:transform .4s ease, filter .4s ease;
+      filter: drop-shadow(0 0 10px rgba(212,175,55,0.2));
+    }
+    .logo-hero:hover {
+      transform:scale(1.05);
+      filter: drop-shadow(0 0 20px rgba(212,175,55,0.6));
+    }
+    @media(max-width:900px){
+      .col-6{grid-column:span 12}
+      nav{display:none}
+      .logo-hero{height:140px}
+    }
   </style>
 </head>
 <body>
@@ -45,7 +60,7 @@
         <img src="./logo.png" class="logo-hero" alt="High Care" />
         <h1>Your clients welcomed. Your time preserved.</h1>
         <p>We handle everything under your brand: greetings, transport, check-in and 24/7 support. You only get satisfied clients.</p>
-        <div style="margin-top:20px">
+        <div style="margin-top:28px">
           <a class="btn gold" href="#solution">See how it works</a>
           <a class="btn outline" href="#pricing" style="margin-left:8px">Get a quote</a>
         </div>
