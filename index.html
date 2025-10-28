@@ -57,7 +57,7 @@
       transition:opacity .3s;
     }
 
-    nav a:hover { opacity:1 }
+    nav a:hover { opacity:1; }
 
     .btn {
       display:inline-block;
@@ -105,7 +105,7 @@
 
     .logo-hero {
       display:block;
-      height:clamp(300px, 38vw, 460px);
+      height:clamp(340px, 40vw, 520px);
       margin:0 auto 35px;
       transition:transform .8s ease, filter .8s ease;
       filter: drop-shadow(0 8px 28px rgba(212,175,55,0.35));
@@ -149,9 +149,9 @@
     }
 
     @media(max-width:900px) {
-      .col-6 { grid-column:span 12 }
-      nav { display:none }
-      .logo-hero { height:240px }
+      .col-6 { grid-column:span 12; }
+      nav { display:none; }
+      .logo-hero { height:260px; }
     }
   </style>
 </head>
@@ -160,7 +160,7 @@
   <header>
     <div class="container bar">
       <div>
-        <img src="./logo-v2.png" class="logo" alt="High Care" />
+        <img id="logoHeader" src="./logo-v3.png?v=1" class="logo" alt="High Care" />
         <strong style="margin-left:8px;">High Care</strong>
       </div>
       <nav>
@@ -174,7 +174,7 @@
   <main>
     <section id="home" class="hero">
       <div class="container">
-        <img src="./logo-v2.png" class="logo-hero" alt="High Care" />
+        <img id="logoHero" src="./logo-v3.png?v=1" class="logo-hero" alt="High Care" />
         <h1>Your clients welcomed. Your time preserved.</h1>
         <p>We handle everything under your brand: greetings, transport, check-in and 24/7 support. You only get satisfied clients.</p>
         <div style="margin-top:36px">
@@ -255,24 +255,22 @@
         </div>
       </div>
     </section>
-
-    <section id="resources" class="alt">
-      <div class="container">
-        <h2>Real-life results that speak for themselves</h2>
-        <div class="row">
-          <div class="col-6"><div class="card" style="text-align:center"><p>Case Study #1 (PDF)</p><a class="btn outline" href="#">Download</a></div></div>
-          <div class="col-6"><div class="card" style="text-align:center"><p>Case Study #2 (PDF)</p><a class="btn outline" href="#">Download</a></div></div>
-          <div class="col-6"><div class="card" style="text-align:center"><p>Case Study #3 (PDF)</p><a class="btn outline" href="#">Download</a></div></div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer style="border-top:1px solid #E5E7EB">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:28px 0;color:#6B7280">
-      <div><img src="./logo-v2.png" class="logo" alt="High Care" /> <span style="margin-left:8px">High Care © 2025</span></div>
+      <div><img id="logoFooter" src="./logo-v3.png?v=1" class="logo" alt="High Care" /> <span style="margin-left:8px">High Care © 2025</span></div>
       <div style="font-size:14px"><a href="#" style="color:inherit;text-decoration:none">Legal Notice</a> · <a href="#" style="color:inherit;text-decoration:none">Privacy Policy</a></div>
     </div>
   </footer>
+
+  <!-- fallback automatique si logo-v3.png est manquant -->
+  <script>
+    const fall = './logo.png?v=3';
+    ['logoHeader','logoHero','logoFooter'].forEach(id=>{
+      const el = document.getElementById(id);
+      el.onerror = () => { el.src = fall; };
+    });
+  </script>
 </body>
 </html>
